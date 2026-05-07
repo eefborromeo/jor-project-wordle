@@ -2,7 +2,7 @@ import React from 'react';
 import { range } from '../../utils';
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 
-function Guess({ guesses }) {
+function Guess({ guesses, answer }) {
 	const placeholder = NUM_OF_GUESSES_ALLOWED - guesses.length;
 	return (
 		<div className="guess-results">
