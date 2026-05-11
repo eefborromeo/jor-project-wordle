@@ -1,27 +1,34 @@
 import React from 'react';
 
-function Banner() {
-	return <div></div>;
+function Banner({ gameStatus, answer }) {
+	return gameStatus.includes(true) ? (
+		<Happy numOfGuesses={gameStatus.length} />
+	) : (
+		<Sad answer={answer} />
+	);
 }
 
 export default Banner;
 
-function Happy() {
+function Happy({ numOfGuesses }) {
 	return (
-		<div class="happy banner">
+		<div className="happy banner">
 			<p>
-				<strong>Congratulations!</strong> Got it in
-				<strong>3 guesses</strong>.
+				<strong>Congratulations!</strong> Got it in{' '}
+				<strong>
+					{numOfGuesses} {numOfGuesses > 1 ? 'guesses' : 'guess'}
+				</strong>
+				.
 			</p>
 		</div>
 	);
 }
 
-function Sad() {
+function Sad({ answer }) {
 	return (
-		<div class="sad banner">
+		<div className="sad banner">
 			<p>
-				Sorry, the correct answer is <strong>LEARN</strong>.
+				Sorry, the correct answer is <strong>{answer}</strong>.
 			</p>
 		</div>
 	);
